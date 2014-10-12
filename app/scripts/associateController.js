@@ -56,7 +56,7 @@ function createSortedTreeList(associateList, sortType) {
         var z = [];
         var index = 0;
         for (index = 0; index < getAssociateList().length; ++index) {
-            
+
         }
     }
 }
