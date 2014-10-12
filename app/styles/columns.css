@@ -1,0 +1,4 @@
+#wrapper {width:1000px; margin:auto;}
+#content {width:500px; float:left; margin-left:50px;}
+#leftbar {width:200px; float:left;}
+#rightbar {width:200px; float:right;}
