@@ -10,7 +10,14 @@ function getObjectiveList() {
     var mockObjs = [
         new objective("Strategic Direction 1",
             "First strategic direction",
-            [],
+            [new associate("Becky",
+                "Jeff M",
+                "IT",
+                4),
+                new associate("Mukul",
+                    "Tara R",
+                    "IT",
+                    4)],
             [
                 new objective("Strategy 1", "First strategy", [], [
                     new objective("Objective 1-1", "First objective", [], [])

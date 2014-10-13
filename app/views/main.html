@@ -1,13 +1,27 @@
 <div id="wrapper">
     <div id="leftbar">
-        <abn-tree tree-data=my_data on-select="my_tree_handler(branch)" expand-level="1"></abn-tree>
+        <abn-tree tree-data=my_data on-select="objective_tree_handler(branch)" expand-level="1"></abn-tree>
 
     </div>
     <div id="content">
+
+        {{currentSelection.name}}<br>
         {{currentSelection.desc}}
+        <table>
+            <tr ng-repeat="associate in currentSelection.associates">
+                <td>{{ associate.name }}</td>
+                <td>{{ associate.manager }}</td>
+                <td>{{ associate.dept }}</td>
+                <td>{{ associate.currLoad }}</td>
+            </tr>
+        </table>
     </div>
     <div id="rightbar">
-
+        <select ng-model="assocSort" ng-change="selectSort(assocSort)">
+            <option value="Name">Name</option>
+            <option value="Department">Department</option>
+        </select>
+        <abn-tree tree-data=associate_data on-select="associate_tree_handler(branch)" expand-level="1"></abn-tree>
     </div>
 
 </div>
