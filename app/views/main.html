@@ -5,16 +5,26 @@
     </div>
     <div id="content">
 
-        {{currentSelection.name}}<br>
-        {{currentSelection.desc}}
-        <table>
-            <tr ng-repeat="associate in currentSelection.associates">
-                <td>{{ associate.name }}</td>
-                <td>{{ associate.manager }}</td>
-                <td>{{ associate.dept }}</td>
-                <td>{{ associate.currLoad }}</td>
-            </tr>
-        </table>
+        <h3>{{currentSelection.name}}</h3>
+        <i>{{currentSelection.desc}}</i>
+        <p>
+        <div class="img" ng-repeat="associate in currentSelection.associates">
+            <div class="card">
+                <h1>{{associate.name}}</h1>
+                <div class="info">
+                    <span class="title">Manager:</span>
+                    <span class="value">{{associate.manager}}</span>
+                </div>
+                <div class="info">
+                    <span class="title">Department:</span>
+                    <span class="value">{{associate.dept}}</span>
+                </div>
+                <div class="info">
+                    <span class="title">Current number of objectives</span>
+                    <span class="value">{{associate.currLoad}}</span>
+                </div>
+            </div>
+         </div>
     </div>
     <div id="rightbar">
         <select ng-model="assocSort" ng-change="selectSort(assocSort)">

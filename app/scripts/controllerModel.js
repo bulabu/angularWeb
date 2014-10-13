@@ -24,7 +24,7 @@ function getObjectiveList() {
                 ])
             ]
         )
-    ]
+    ];
     return mockObjs;
 }
 
