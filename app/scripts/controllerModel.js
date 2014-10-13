@@ -10,14 +10,7 @@ function getObjectiveList() {
     var mockObjs = [
         new objective("Strategic Direction 1",
             "First strategic direction",
-            [new associate("Becky",
-                "Jeff M",
-                "IT",
-                4),
-                new associate("Mukul",
-                    "Tara R",
-                    "IT",
-                    4)],
+            [],
             [
                 new objective("Strategy 1", "First strategy", [], [
                     new objective("Objective 1-1", "First objective", [], [])
@@ -32,7 +25,6 @@ function generateTreeList(objectiveList) {
     var index = 0;
     var retArray = [];
     for (index = 0; index < objectiveList.length; ++index) {
-        console.log(objectiveList[index]);
         if (objectiveList[index].children.length == 0) {
             retArray.push({
                     label: objectiveList[index].name,
@@ -65,7 +57,6 @@ function getObjectiveByName(objectiveName, locObjList) {
                 found = new objective("Dummy", "Dummy", [], []);
             }
             else {
-                console.log(locObjList[index].children[0].name);
                 found = getObjectiveByName(objectiveName, locObjList[index].children);
             }
 

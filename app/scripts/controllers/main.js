@@ -16,19 +16,21 @@ angular.module('angularWebApp')
         var masterObjectiveList = getObjectiveList();
         var currentSortSel = $scope.assocSort;
         $scope.currentSelection=null;
-
+        var currentObjSel=null;
         $scope.my_data = generateTreeList(masterObjectiveList);
         var masterAssociateList = getAssociateList();
         $scope.currentAssociateSelection=null;
         $scope.associate_data = createSortedTreeList(masterAssociateList, $scope.assocSort);
-
+        var currentSelAssoc = null;
         $scope.objective_tree_handler = function (branch) {
             var _ref;
             $scope.currentSelection = getObjectiveByName(branch.label, masterObjectiveList);
+            currentObjSel = $scope.currentSelection;
         };
         $scope.associate_tree_handler = function (branch) {
+
             $scope.currentAssociateSelection = getAssociateByName(branch.label, masterAssociateList);
-            console.log($scope.currentAssociateSelection);
+            currentSelAssoc = $scope.currentAssociateSelection;
         };
 
         $scope.selectSort = function(value)
@@ -50,16 +52,15 @@ angular.module('angularWebApp')
                 else if(currentSortSel=="Department"){
                     field = masterAssociateList[index].dept;
                 }
-                else{
-                    console.log(currentSortSel);
-                }
-                console.log("field" + field);
                 if(startsWith(search.toLowerCase(), field.toLowerCase()))
                 {
                    tmpArray.push(masterAssociateList[index]);
                 }
             }
-            console.log($scope.assocSort);
             $scope.associate_data = createSortedTreeList(tmpArray, currentSortSel);
+        }
+        $scope.addAssociate = function(){
+            currentObjSel.associates.push(currentSelAssoc);
+            currentSelAssoc.currLoad++;
         }
     });

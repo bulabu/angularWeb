@@ -27,10 +27,7 @@ function getAssociateList() {
 }
 
 function createSortedTreeList(associateList, sortType) {
-    console.log("entered create tree list");
     if (sortType == "Name" || sortType == null) {
-        console.log("Name");
-        console.log(associateList[0].name);
         associateList.sort(
             function(a,b)
             {
@@ -61,7 +58,6 @@ function createSortedTreeList(associateList, sortType) {
         return retArray;
     }
     if (sortType == "Department" || sortType == null) {
-        console.log("Department");
         var index;
         var retArray=[];
         associateList.sort(
@@ -88,10 +84,7 @@ function createSortedTreeList(associateList, sortType) {
                 currentArray.push({label:associateList[index].name, data:associateList[index]});
                 index++;
             }
-            console.log('pushing:');
-            console.log(currentLetter + ' ' + currentArray);
             retArray.push({label:currentLetter, children:currentArray});
-            console.log(retArray[tempindex].label);
             tempindex++;
         }
         return retArray;
@@ -111,10 +104,8 @@ function getAssociateByName(associateName, associateList)
 }
 function startsWith(prefix, str)
 {
-    console.log(str.substring(0,prefix.length));
     if(str.substring(0,prefix.length)==prefix)
     {
-        console.log("found");
         return true;
     }
     return false;
