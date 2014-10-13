@@ -12,7 +12,9 @@ angular.module('angularWebApp')
 
         $scope.my_data = [];
         $scope.assocSort = "Name";
+        $scope.search = "Temp";
         var masterObjectiveList = getObjectiveList();
+        var currentSortSel;
         $scope.currentSelection=null;
 
         $scope.my_data = generateTreeList(masterObjectiveList);
@@ -31,6 +33,21 @@ angular.module('angularWebApp')
 
         $scope.selectSort = function(value)
         {
-            $scope.associate_data = createSortedTreeList(masterAssociateList, value);
+            currentSortSel = value;
+            $scope.associate_data = createSortedTreeList(masterAssociateList, currentSortSel);
+        };
+        $scope.filterSort = function(search)
+        {
+            var index = 0;
+            var tmpArray=[];
+            for(index = 0; index < masterAssociateList.length; index++)
+            {
+                if(startsWith(search.toLowerCase(), masterAssociateList[index].name.toLowerCase()))
+                {
+                   tmpArray.push(masterAssociateList[index]);
+                }
+            }
+            console.log($scope.assocSort);
+            $scope.associate_data = createSortedTreeList(tmpArray, currentSortSel);
         }
     });

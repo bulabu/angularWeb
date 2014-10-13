@@ -30,6 +30,7 @@ function createSortedTreeList(associateList, sortType) {
     console.log("entered create tree list");
     if (sortType == "Name" || sortType == null) {
         console.log("Name");
+        console.log(associateList[0].name);
         associateList.sort(
             function(a,b)
             {
@@ -108,3 +109,13 @@ function getAssociateByName(associateName, associateList)
     }
     return null;
 }
+function startsWith(prefix, str)
+{
+    console.log(str.substring(0,prefix.length));
+    if(str.substring(0,prefix.length)==prefix)
+    {
+        console.log("found");
+        return true;
+    }
+    return false;
+};

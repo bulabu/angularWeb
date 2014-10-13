@@ -31,6 +31,7 @@
             <option value="Name">Name</option>
             <option value="Department">Department</option>
         </select>
+        <input type="text" ng-model="search" ng-change="filterSort(search)"/>
         <abn-tree tree-data=associate_data on-select="associate_tree_handler(branch)" expand-level="1"></abn-tree>
     </div>
 
