@@ -58,9 +58,22 @@ angular.module('angularWebApp')
                 }
             }
             $scope.associate_data = createSortedTreeList(tmpArray, currentSortSel);
-        }
+        };
         $scope.addAssociate = function(){
-            currentObjSel.associates.push(currentSelAssoc);
-            currentSelAssoc.currLoad++;
-        }
+            if(inArray(currentSelAssoc,currentObjSel.associates)==-1 && currentSelAssoc!=null) {
+                currentObjSel.associates.push(currentSelAssoc);
+                currentSelAssoc.currLoad++;
+            }
+        };
     });
+function inArray(elem,array)
+{
+    var len = array.length;
+    for(var i = 0 ; i < len;i++)
+    {
+        console.log(array[i]);
+        console.log(elem);
+        if(array[i] == elem){return i;}
+    }
+    return -1;
+}

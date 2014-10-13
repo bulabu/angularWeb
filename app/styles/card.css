@@ -1,7 +1,7 @@
 article, aside, figure, footer, header,
 menu, nav, section { display: block; }
 .card {
-    min-width:250px;
+    min-width:150px;
     border-radius:10px;
     background-color:#09f;
     /*background-image: -webkit-linear-gradient(top,red, #f06d06);

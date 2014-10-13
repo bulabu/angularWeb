@@ -4,9 +4,10 @@
 
     </div>
     <div id="content">
-
+        <center>
         <h3>{{currentSelection.name}}</h3>
         <i>{{currentSelection.desc}}</i>
+        </center>
         <p>
         <div class="img" ng-repeat="associate in currentSelection.associates">
             <div class="card">
@@ -20,7 +21,7 @@
                     <span class="value">{{associate.dept}}</span>
                 </div>
                 <div class="info">
-                    <span class="title">Current number of objectives</span>
+                    <span class="title">Assigned:</span>
                     <span class="value">{{associate.currLoad}}</span>
                 </div>
             </div>
