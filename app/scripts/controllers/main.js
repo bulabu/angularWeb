@@ -14,7 +14,7 @@ angular.module('angularWebApp')
         $scope.assocSort = "Name";
         $scope.search = "Temp";
         var masterObjectiveList = getObjectiveList();
-        var currentSortSel;
+        var currentSortSel = $scope.assocSort;
         $scope.currentSelection=null;
 
         $scope.my_data = generateTreeList(masterObjectiveList);
@@ -40,9 +40,21 @@ angular.module('angularWebApp')
         {
             var index = 0;
             var tmpArray=[];
+            var field="";
+
             for(index = 0; index < masterAssociateList.length; index++)
             {
-                if(startsWith(search.toLowerCase(), masterAssociateList[index].name.toLowerCase()))
+                if(currentSortSel=="Name"){
+                    field = masterAssociateList[index].name;
+                }
+                else if(currentSortSel=="Department"){
+                    field = masterAssociateList[index].dept;
+                }
+                else{
+                    console.log(currentSortSel);
+                }
+                console.log("field" + field);
+                if(startsWith(search.toLowerCase(), field.toLowerCase()))
                 {
                    tmpArray.push(masterAssociateList[index]);
                 }
